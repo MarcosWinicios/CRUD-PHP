@@ -3,7 +3,7 @@
     require_once "estado.php";
     require_once "cidade.php";
 
-    class cidadeDao {
+    class CidadeDao {
         private $conexao;
 
         public function __construct(Conexao $conexao) {
@@ -23,14 +23,14 @@
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
 
-            $resultados = $stmt->fetchAll(PDO::FETCH_OBJ); // array de cidade?
+            $resultados = $stmt->fetchAll(PDO::FETCH_OBJ); 
             $cidades = array();
 
             $conexao = new Conexao();
             $estadoDao = new EstadoDao($conexao);
             foreach ($resultados as $id => $objeto) {
                 $estado = $estadoDao->pesquisarId($objeto->idEstado);
-                $cidade = new cidade($objeto->nome, $estado);
+                $cidade = new Cidade($objeto->nome, $estado);
                 $cidade->__set('id', $objeto->id);
                 $cidades[] = $cidade;
             }
@@ -46,10 +46,10 @@
             $resultado = $stmt->fetch(PDO::FETCH_OBJ);
             
             $conexao = new Conexao();
-            $estadoDao = new estadoDao($conexao);
+            $estadoDao = new EstadoDao($conexao);
             
             $estado = $estadoDao->pesquisarId($resultado->idEstado);
-            $cidade = new cidade($resultado->nome, $estado);
+            $cidade = new Cidade($resultado->nome, $estado);
             $cidade->__set('id', $resultado->id);
             return $cidade;            
         }
@@ -61,7 +61,7 @@
             $stmt->execute();
 
             $resultado = $stmt->fetch(PDO::FETCH_OBJ);
-            
+
             $conexao = new Conexao();
             $estadoDao = new estadoDao($conexao);
             

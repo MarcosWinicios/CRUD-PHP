@@ -16,7 +16,6 @@
             $stmt->execute();
         }
 
-        // public function pesquisarNome($nome) : estado { //tipo de retorno
         public function pesquisarNome($nome) {
             $sql = 'SELECT * FROM estado WHERE nome = :nome';
             $stmt = $this->conexao->prepare($sql);
@@ -58,7 +57,7 @@
             $stmt = $this->conexao->prepare($sql);
             $stmt->execute();
 
-            $resultados = $stmt->fetchAll(PDO::FETCH_OBJ); // array de estado?
+            $resultados = $stmt->fetchAll(PDO::FETCH_OBJ);
             $estados = array();
         
             foreach ($resultados as $id => $objeto) {
