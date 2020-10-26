@@ -10,6 +10,8 @@
     $cidadeDao = new CidadeDao($conexao);
 
     //Teste de Inserir cidade
+    echo "<h2>Inserindo cidade e listando tudo</h2> <br>";
+
     $estado = $estadoDao->pesquisarNome('Goiás');
 
     $cidade3 = new Cidade('Rialma', $estado);
@@ -24,6 +26,8 @@
     echo "</pre>";
 
     //Teste pesquisar Cidade por ID
+    echo "<h2>Pesquisar Cidade por ID</h2> <br>";
+
     $cidade = $cidadeDao->pesquisarId(3);
 
     echo "<pre>";
@@ -31,6 +35,8 @@
     echo "</pre>";
 
     //Teste de Pesquisar cidade por Nome
+    echo "<h2>Pesquisar Cidade por nome</h2> <br>";
+
     $cidade2 = $cidadeDao->pesquisarNome('Ceres');
 
     echo "<pre>";
