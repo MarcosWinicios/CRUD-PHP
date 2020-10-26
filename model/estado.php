@@ -1,14 +1,12 @@
 <?php 
-    class Cliente {
-        private $id;
+    class Estado {
         private $nome;
-        private $idade;
-        private $cidade;
+        private $sigla;
 
-        public function __construct($nome, $idade, $cidade){
+        public function __construct($nome, $sigla)
+        {
             $this->nome = $nome;
-            $this->idade = $idade;
-            $this->cidade = $cidade;
+            $this->sigla = $sigla;
         }
 
         public function __get($atributo)
@@ -21,5 +19,4 @@
             $this->$atributo = $valor;
         }
     }
-
 ?>
