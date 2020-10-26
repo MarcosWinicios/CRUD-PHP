@@ -1,12 +1,12 @@
 <?php 
-    class Estado {
+    class Cidade {
         private $nome;
         private $estado;
 
         public function __construct($nome, $estado)
         {
             $this->nome = $nome;
-            $this->sigla = $estado;
+            $this->estado = $estado;
         }
 
         public function __get($atributo)
