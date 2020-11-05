@@ -1,5 +1,6 @@
 <?php 
     class Estado {
+        private $id;
         private $nome;
         private $sigla;
 
@@ -8,7 +9,7 @@
             $this->nome = $nome;
             $this->sigla = $sigla;
         }
-
+       
         public function __get($atributo)
         {
             return $this->$atributo;

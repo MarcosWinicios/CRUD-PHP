@@ -13,7 +13,7 @@ CREATE TABLE cidade (
     nome VARCHAR(80) NOT NULL,
 	idEstado INT NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY(idEstado) REFERENCES estado (id)
+    FOREIGN KEY(idEstado) REFERENCES estado (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE cliente (
@@ -22,11 +22,8 @@ CREATE TABLE cliente (
     idade INT NOT NULL,
     idCidade INT NOT NULL,
     PRIMARY KEY(id),
-    FOREIGN KEY (idCidade) REFERENCES cidade (id)
-    
+    FOREIGN KEY (idCidade) REFERENCES cidade (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
 
 INSERT INTO estado (nome, sigla) VALUES ('Goiás', 'GO');
 INSERT INTO estado (nome, sigla) VALUES ('Brasília', 'DF');

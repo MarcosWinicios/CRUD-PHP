@@ -67,5 +67,12 @@
             }
             return $estados;
         }
+
+        public function deletar(Estado $estado){
+            $sql = 'DELETE FROM estado WHERE id = :id';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(':id', $estado->__get('id'));
+            $stmt->execute();
+        }
     }
 ?>
