@@ -38,7 +38,7 @@
     echo "<h2>Inserir um estado e listar todos</h2> <br>";
 
     $estado4 = new Estado('Tocantins', 'TO');
-    $estadoDao->inserir($estado4);
+    // $estadoDao->inserir($estado4);
     
 
     //Teste Listar todos os Estados
@@ -51,16 +51,27 @@
     //Deletar um estado
     echo "<h2>Deletar um estado</h2> <br>";
 
-    $estado6 = $estadoDao->pesquisarSigla('SP');
+    $estado6 = $estadoDao->pesquisarSigla('GO');
     echo "<pre>";
     print_r($estado6);
     echo "</pre>";
-    $estadoDao->deletar($estado6);
+    // $estadoDao->deletar($estado6);
 
     $estados2 = $estadoDao->listarTudo();
     echo "<pre>";
     print_r($estados2);
     echo "</pre>";
 
+    //Alterar um estado
+    echo "<h2>Alterar um estado</h2> <br>";
+
+    $est = $estadoDao->pesquisarNome('Goiás');
+    $est->__set('nome', 'José');
+    $estadoDao->alterar($est);
+
+    $estados3 = $estadoDao->listarTudo();
+    echo "<pre>";
+    print_r($estados3);
+    echo "</pre>";
 
 ?>

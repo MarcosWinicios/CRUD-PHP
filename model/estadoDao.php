@@ -23,7 +23,7 @@
             $stmt->execute();
 
             $resultado = $stmt->fetch(PDO::FETCH_OBJ);
-            $estado = new estado($resultado->nome, $resultado->sigla);
+            $estado = new Estado($resultado->nome, $resultado->sigla);
             $estado->__set('id', $resultado->id);
             return $estado;
         }
@@ -35,7 +35,8 @@
             $stmt->execute();
 
             $resultado = $stmt->fetch(PDO::FETCH_OBJ);
-            $estado = new estado($resultado->nome, $resultado->sigla);
+
+            $estado = new Estado($resultado->nome, $resultado->sigla);
             $estado->__set('id', $resultado->id);
             return $estado;
         }
@@ -47,7 +48,7 @@
             $stmt->execute();
 
             $resultado = $stmt->fetch(PDO::FETCH_OBJ);
-            $estado = new estado($resultado->nome, $resultado->sigla);
+            $estado = new Estado($resultado->nome, $resultado->sigla);
             $estado->__set('id', $resultado->id);
             return $estado;
         }
@@ -61,7 +62,7 @@
             $estados = array();
         
             foreach ($resultados as $id => $objeto) {
-                $estado = new estado($objeto->nome, $objeto->sigla);
+                $estado = new Estado($objeto->nome, $objeto->sigla);
                 $estado->__set('id', $objeto->id);
                 $estados[] = $estado;
             }
@@ -71,6 +72,15 @@
         public function deletar(Estado $estado){
             $sql = 'DELETE FROM estado WHERE id = :id';
             $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(':id', $estado->__get('id'));
+            $stmt->execute();
+        }
+
+        public function alterar(Estado $estado){
+            $sql = 'UPDATE estado SET nome = :nome, sigla = :sigla WHERE id = :id';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(':nome', $estado->__get('nome'));
+            $stmt->bindValue(':sigla', $estado->__get('sigla'));
             $stmt->bindValue(':id', $estado->__get('id'));
             $stmt->execute();
         }
