@@ -28,7 +28,7 @@
     //Teste pesquisar Cidade por ID
     echo "<h2>Pesquisar Cidade por ID</h2> <br>";
 
-    $cidade = $cidadeDao->pesquisarId(3);
+    $cidade = $cidadeDao->pesquisarId(4);
 
     echo "<pre>";
     print_r($cidade);

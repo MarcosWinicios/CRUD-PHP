@@ -37,8 +37,8 @@
     //Teste inserir Estado
     echo "<h2>Inserir um estado e listar todos</h2> <br>";
 
-    $estado4 = new Estado('Acre', 'AC');
-    $estadoDao->inserir($estado4);
+    $estado4 = new Estado('Teste', 'TT');
+    $estadoDao->salvar($estado4);
     
 
     //Teste Listar todos os Estados
@@ -65,10 +65,10 @@
     //Alterar um estado
     echo "<h2>Alterar um estado</h2> <br>";
 
-    $est = $estadoDao->pesquisarNome('São Paulo');
+    $est = $estadoDao->pesquisarNome('São Pauloo');
     $est->__set('nome', 'São Paulo');
     $est->__set('sigla', 'SP');
-    $estadoDao->alterar($est);
+    $estadoDao->salvar($est);
 
     $estados3 = $estadoDao->listarTudo();
     echo "<pre>";

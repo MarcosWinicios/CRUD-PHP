@@ -26,7 +26,7 @@
 
     //Teste pesquisar Cliente por ID
     echo "<h2>Pesquisar cliente por ID</h2> <br>";
-    $cliente2 = $clienteDao->pesquisarId(2);
+    $cliente2 = $clienteDao->pesquisarId(6);
     echo "<pre>";
     print_r($cliente2);
     echo "</pre>";
@@ -37,7 +37,7 @@
 
     $cidade = $cidadeDao->pesquisarNome('Ceres');
 
-    $cliente3 = new Cliente('Pedro', 22, $cidade);
+    $cliente3 = new Cliente('André', 19, $cidade);
 
     $clienteDao->inserir($cliente3);
 
