@@ -6,9 +6,10 @@
     $conexao = new Conexao();
     $estadoDao = new EstadoDao($conexao);
 
+    echo "<h3>Não está testado, mas se alterar/apagar algum estado, todas as cidades e clientes ligados ao mesmo também será apagado.<br/> Pois criei o banco com as ações de DELETE e UPDATE como CASCADE, para que sigam um efeito Cascata</h3>";
     //Teste Pesquisar Estado por nome
 
-    $estado = $estadoDao->pesquisarNome('São Paulo');
+    $estado = $estadoDao->pesquisarNome('Goiás');
 
     echo "<h2>Pesquisando estado por Nome</h2> <br>";
     echo "<pre>";
@@ -65,9 +66,9 @@
     //Alterar um estado
     echo "<h2>Alterar um estado</h2> <br>";
 
-    $est = $estadoDao->pesquisarNome('São Pauloo');
-    $est->__set('nome', 'São Paulo');
-    $est->__set('sigla', 'SP');
+    $est = $estadoDao->pesquisarNome('São Paulo');
+    $est->__set('nome', 'São Pauloo');
+    $est->__set('sigla', 'PS');
     $estadoDao->salvar($est);
 
     $estados3 = $estadoDao->listarTudo();

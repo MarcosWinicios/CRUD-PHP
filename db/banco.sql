@@ -25,16 +25,9 @@ CREATE TABLE cliente (
     FOREIGN KEY (idCidade) REFERENCES cidade (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO estado (nome, sigla) VALUES ('Goiás', 'GO');
-INSERT INTO estado (nome, sigla) VALUES ('Brasília', 'DF');
-INSERT INTO estado (nome, sigla) VALUES ('São Paulo', 'SP');
 
-INSERT INTO cidade (nome, idEstado) VALUES ('Itapaci', '1');
-INSERT INTO cidade (nome, idEstado) VALUES ('Ceres', '1');
-INSERT INTO cidade (nome, idEstado) VALUES ('São Paulo', '3');
+INSERT INTO estado VALUES (2,'Brasília','DF'),(4,'Rio de Janeiro','RJ'),(9,'Tocantins','TO'),(11,'Piauí','PI'),(12,'São Paulo','SP'),(14,'Acre','AC'),(15,'Goiás','GO'),(19,'São Paulo','SP');
 
-INSERT INTO cliente (nome, idade, idCidade) VALUES ('Marcos', '20', '1');
-INSERT INTO cliente (nome, idade, idCidade) VALUES ('Lucas', '30', '2');
-INSERT INTO cliente (nome, idade, idCidade) VALUES ('Maria', '25', '1');
-INSERT INTO cliente (nome, idade, idCidade) VALUES ('José', '18', '2');
-INSERT INTO cliente (nome, idade, idCidade) VALUES ('Joana', '19', '3');
+INSERT INTO `cidade` VALUES (4,'Goiânia',15),(5,'Rialma',15),(6,'Itapaci',15),(7,'Ceres',15),(8,'Rialma',15);
+
+INSERT INTO `cliente` VALUES (6,'Pedro',22,7),(9,'Joana',20,4),(10,'João',32,7),(11,'André',19,7);

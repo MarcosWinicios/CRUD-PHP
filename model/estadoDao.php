@@ -9,6 +9,15 @@
         }
 
         public function salvar(Estado $estado){
+            //Se a intenção for alterar, antes de chamar este método, e necesário verificar se tal estado
+            //Existe no banco. Se isso não for feito, o mesmo será inserido. 
+            //Isso pq talvez o estado em si, exista sim no banco... mas se algum dado do estado entrar neste
+            //método com algum erro ortográfico por exemplo... o mesmo será inserido no banco...
+            //Isso pode ser resolvido na interface gráfica, ou com um método que verifica o estado digitado pelo 
+            //usuário.
+            //Não implemente este método, pois acredito que a melhor forma de resolver isto seria não permitindo que
+            //o usuário pesquise o nome do estado digitando, mas sim, em uma lista com todos os estados,o usuário possa
+            //Selecionar o que deseja alterar/deletar
             if(empty($estado->__get('id'))){
                 $this->inserir($estado);
             }else{
